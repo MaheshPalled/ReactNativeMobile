@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, FlatList } from 'react-native';
 import { Card, ListItem } from 'react-native-elements';
-import {PARTNERS} from '../shared/partners';
+import { PARTNERS } from '../shared/partners';
 
 class About extends Component {
 
@@ -17,7 +17,6 @@ class About extends Component {
     }
 
     render() {
-
         const renderPartner = ({ item }) => {
             return (
                 <ListItem
@@ -31,19 +30,19 @@ class About extends Component {
             <ScrollView>
                 <Mission />
                 <Card title='Community Partners'>
-                <FlatList
-                    title='Community Partners'
-                    data={this.state.partners}
-                    renderItem={renderPartner}
-                    keyExtractor={item => item.id.toString()}>
-                </FlatList>
+                    <FlatList
+                        title='Community Partners'
+                        data={this.state.partners}
+                        renderItem={renderPartner}
+                        keyExtractor={item => item.id.toString()}>
+                    </FlatList>
                 </Card>
-
             </ScrollView>
         );
     }
 }
 
+//Functional component which return the card with Our Mission content.
 function Mission() {
     return (
         <Card

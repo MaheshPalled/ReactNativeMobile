@@ -15,6 +15,7 @@ class Contact extends Component {
     }
 
     render() {
+        //Directly returning a card for the contact component.
         return (
             <ScrollView>
                 <Card
@@ -37,9 +38,7 @@ class Contact extends Component {
                         Email: campsites@nucamp.co  
                         </Text>
                     </View>
-
                 </Card>
-
             </ScrollView>
         )
     }
