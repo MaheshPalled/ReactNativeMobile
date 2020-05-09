@@ -24,8 +24,9 @@ const mapDispatchToProps = {
 function RenderCampsite(props) {
 
     const {campsite} = props;
-
-    const recognizeDrag = ({dx}) => (dx < -200) ? true : false;
+    const view = React.createRef();
+    const recognizeDrag = ({dx}) => (dx < -100) ? true : false;
+    const recognizeRightToLeftDrag = ({dx}) => (dx >100) ? true : false;
 
     const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: () => true,
@@ -50,9 +51,14 @@ function RenderCampsite(props) {
                     { cancelable: false }
                 );
             }
+            else if (recognizeRightToLeftDrag(gestureState)) {
+                props.onShowModal();
+            }
             return true;
         }
     });
+
+   
 
     if (campsite) {
         return (
